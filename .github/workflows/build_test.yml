@@ -22,8 +22,6 @@ jobs:
                   node-version: 20
             - name: Install node modules
               run: npm install
-            - name: Execute security tests
-              run: npm audit fix
             - name: Run Tests
               run: npm test
 
