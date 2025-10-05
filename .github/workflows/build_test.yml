@@ -23,6 +23,6 @@ jobs:
             - name: Install node modules
               run: npm install
             - name: Execute security tests
-              run: npm audit
+              run: npm audit fix --force
             - name: Run Tests
               run: npm test
