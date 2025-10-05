@@ -4,24 +4,25 @@
 name: Node.js CI
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    push:
+        branches: ["main"]
+    pull_request:
+        branches: ["main"]
 
 jobs:
-  build_test:
+    build_test:
+        runs-on: ubuntu-latest
 
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Repo Checkout
-      uses: actions/checkout@v4
-    - name: Use Node 20  
-      uses: actions/setup-node@v4
-      with:
-        node-version: 20
-    - name: Install node modules    
-      run: npm install
-    - name: Run Tests  
-      run: npm test
+        steps:
+            - name: Repo Checkout
+              uses: actions/checkout@v4
+            - name: Use Node 20
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 20
+            - name: Install node modules
+              run: npm install
+            - name: Execute security tests
+              run: npm audit
+            - name: Run Tests
+              run: npm test
